@@ -1,2 +1,4 @@
 # Packaging
 .idea/
+.venv/
+**/__pycache__/
