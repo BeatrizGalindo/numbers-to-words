@@ -9,23 +9,31 @@ sys.path.append(project_root)
 from src.convert import number_to_words  # Import the conversion function
 
 
-
 def main():
     # Check for the correct number of arguments
     if len(sys.argv) != 2:
-        print("Usage: ./numbers-to-words [number]")
+        # Print usage message to stderr and exit with error code 1
+        sys.stderr.write("Usage: ./numbers-to-words [number]\n")
         sys.exit(1)
 
     try:
+        # Read the input number from the command-line argument
         number = int(sys.argv[1])
+
+        # Check if the number is within the supported range
         if 0 <= number <= 100000:
-            print(number_to_words(number))
+            # Print the result to stdout
+            sys.stdout.write(number_to_words(number) + "\n")
+            sys.exit(0)  # Successful exit code
         else:
-            print("Error: Number must be between 0 and 100,000.")
-            sys.exit(1)
+            # Print error message to stderr if number is out of range
+            sys.stderr.write("Error: Number must be between 0 and 100,000.\n")
+            sys.exit(1)  # Exit with error code 1
     except ValueError:
-        print("Error: Input must be an integer.")
-        sys.exit(1)
+        # Handle non-integer input
+        sys.stderr.write("Error: Input must be an integer.\n")
+        sys.exit(1)  # Exit with error code 1
+
 
 if __name__ == "__main__":
     main()
