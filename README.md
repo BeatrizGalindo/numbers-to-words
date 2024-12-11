@@ -24,6 +24,7 @@ The project is structured as follows:
 ## Requirements
 - Python 3.13+
 - pip
+
 To use a virtual environment, run:
 ```
 python3 -m venv .venv
@@ -64,7 +65,7 @@ The `bin/numbers-to-words` script handles input validation, error handling, and 
 The `tests/test_convert.py` file includes unit tests to ensure the conversion logic works as expected.
 
 ## Running tests
-To run the tests, ensure you have `pytest` installed and run the following command:
+To run the tests:
 ```
 python -m unittest tests.test_convert
 ```
