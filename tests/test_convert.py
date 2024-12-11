@@ -1,40 +1,59 @@
 import unittest
-from src.convert import number_to_words
+from src.convert import NumberToWordsConverter
 
 
 class TestNumberToWords(unittest.TestCase):
     def test_zero(self):
-        self.assertEqual(number_to_words(0), "zero")
+        converter = NumberToWordsConverter(0)
+        self.assertEqual(converter.number_to_words(), "zero")
 
     def test_single_digit(self):
-        self.assertEqual(number_to_words(1), "one")
-        self.assertEqual(number_to_words(9), "nine")
+        converter = NumberToWordsConverter(1)
+        self.assertEqual(converter.number_to_words(), "one")
+        converter = NumberToWordsConverter(9)
+        self.assertEqual(converter.number_to_words(), "nine")
 
     def test_teens(self):
-        self.assertEqual(number_to_words(11), "eleven")
-        self.assertEqual(number_to_words(15), "fifteen")
-        self.assertEqual(number_to_words(52), "fifty-two")
+        converter = NumberToWordsConverter(11)
+        self.assertEqual(converter.number_to_words(), "eleven")
+        converter = NumberToWordsConverter(15)
+        self.assertEqual(converter.number_to_words(), "fifteen")
+        converter = NumberToWordsConverter(52)
+        self.assertEqual(converter.number_to_words(), "fifty-two")
 
     def test_tens(self):
-        self.assertEqual(number_to_words(20), "twenty")
-        self.assertEqual(number_to_words(42), "forty-two")
+        converter = NumberToWordsConverter(20)
+        self.assertEqual(converter.number_to_words(), "twenty")
+        converter = NumberToWordsConverter(42)
+        self.assertEqual(converter.number_to_words(), "forty-two")
 
     def test_hundreds(self):
-        self.assertEqual(number_to_words(100), "one hundred")
-        self.assertEqual(number_to_words(101), "one hundred and one")
-        self.assertEqual(number_to_words(115), "one hundred and fifteen")
-        self.assertEqual(number_to_words(352), "three hundred and fifty-two")
-        self.assertEqual(number_to_words(999), "nine hundred and ninety-nine")
+        converter = NumberToWordsConverter(100)
+        self.assertEqual(converter.number_to_words(), "one hundred")
+        converter = NumberToWordsConverter(101)
+        self.assertEqual(converter.number_to_words(), "one hundred and one")
+        converter = NumberToWordsConverter(115)
+        self.assertEqual(converter.number_to_words(), "one hundred and fifteen")
+        converter = NumberToWordsConverter(352)
+        self.assertEqual(converter.number_to_words(), "three hundred and fifty-two")
+        converter = NumberToWordsConverter(999)
+        self.assertEqual(converter.number_to_words(), "nine hundred and ninety-nine")
 
     def test_thousands(self):
-        self.assertEqual(number_to_words(1000), "one thousand")
-        self.assertEqual(number_to_words(12055), "twelve thousand and fifty-five")
-        self.assertEqual(number_to_words(12300), "twelve thousand, three hundred")
-        self.assertEqual(number_to_words(12345), "twelve thousand, three hundred and forty-five")
-        self.assertEqual(number_to_words(99999), "ninety-nine thousand, nine hundred and ninety-nine")
+        converter = NumberToWordsConverter(1000)
+        self.assertEqual(converter.number_to_words(), "one thousand")
+        converter = NumberToWordsConverter(12055)
+        self.assertEqual(converter.number_to_words(), "twelve thousand and fifty-five")
+        converter = NumberToWordsConverter(12300)
+        self.assertEqual(converter.number_to_words(), "twelve thousand, three hundred")
+        converter = NumberToWordsConverter(12345)
+        self.assertEqual(converter.number_to_words(), "twelve thousand, three hundred and forty-five")
+        converter = NumberToWordsConverter(99999)
+        self.assertEqual(converter.number_to_words(), "ninety-nine thousand, nine hundred and ninety-nine")
 
     def test_exact_thousand(self):
-        self.assertEqual(number_to_words(100000), "one hundred thousand")
+        converter = NumberToWordsConverter(100000)
+        self.assertEqual(converter.number_to_words(), "one hundred thousand")
 
 
 if __name__ == "__main__":

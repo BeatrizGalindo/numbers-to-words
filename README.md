@@ -52,7 +52,7 @@ To convert a number to words, run the script as follows:
 #### Example output:
 
 ```
-twelve thousand three hundred forty-five
+twelve thousand, three hundred and forty-five
 ```
 ## Exit Codes: 
 `0`: Successful execution.
@@ -65,11 +65,11 @@ The `bin/numbers-to-words` script handles input validation, error handling, and 
 The `tests/test_convert.py` file includes unit tests to ensure the conversion logic works as expected.
 
 ## Running tests
-To run the tests:
+To run the tests and generate the coverage report:
 ```
-python -m unittest tests.test_convert
+coverage run -m unittest tests.test_convert
 ```
-![Tests](images/Test.png)
+![Tests](images/test.png)
 
 
 To see the coverage:
@@ -77,7 +77,7 @@ To see the coverage:
 ```
 coverage report
 ```
-![Coverage](images/Coverage.png)
+![Coverage](images/coverage.png)
 
 
 
