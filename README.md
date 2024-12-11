@@ -6,26 +6,34 @@ The Numbers to Words Converter is a Python project that converts a given number 
 The project is structured as follows:
 
 ```
-├── README.md               # Project overview and documentation
+.
+├── README.md              # Project overview and documentation.
 ├── bin
-│   └── numbers-to-words    # Main executable script for the converter
-├── requirements.txt        # Python dependencies for the project
+│   └── numbers-to-words   # Executable script to convert numbers to words.
+├── images
+│   ├── Coverage.png       # Screenshot of code coverage report.
+│   └── Test.png           # Screenshot of test results or test coverage.
+├── requirements.txt       # Lists the dependencies required to run the project (e.g. coverage).
 ├── src
-│   ├── __init__.py         # Initializes the 'src' module
-│   ├── __pycache__         # Directory containing compiled Python files
-│   │   ├── __init__.cpython-313.pyc
-│   │   └── convert.cpython-313.pyc
-│   └── convert.py          # Core conversion logic from numbers to words
+│   ├── __init__.py        # Marks the directory as a Python package.
+│   └── convert.py         # Main code for converting numbers to words.
 └── tests
-    ├── __pycache__         # Directory containing compiled Python test files
-    │   └── test_convert.cpython-313-pytest-8.3.3.pyc
-    └── test_convert.py      # Unit tests for the conversion logic
-
+    └── test_convert.py     # Unit tests for the `convert.py` module.
 ```
-
 
 ## Requirements
 - Python 3.13+
+- pip
+To use a virtual environment, run:
+```
+python3 -m venv .venv
+source .venv/bin/activate
+```
+
+To install the required dependencies, run:
+```
+pip install -r requirements.txt
+```
 
 ## Usage
 The `numbers-to-words` script is located in the bin directory and can be run from the command line. 
@@ -58,6 +66,20 @@ The `tests/test_convert.py` file includes unit tests to ensure the conversion lo
 ## Running tests
 To run the tests, ensure you have `pytest` installed and run the following command:
 ```
-pytest tests/test_convert.py
+python -m unittest tests.test_convert
 ```
+![Tests](images/Test.png)
 
+
+To see the coverage:
+
+```
+coverage report
+```
+![Coverage](images/Coverage.png)
+
+
+
+-> The rules for naming numbers can be ambiguous; however, the implementation follows the examples provided in the test specifications.
+
+-> Inputs with commas are not handled, as the specification states that the input will be an integer. However, in the future, support for comma-separated values and floating-point numbers could be added.
